@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "968327119450",
+    "firebase_url": "https://mlvisiontest-a1a64.firebaseio.com",
+    "project_id": "mlvisiontest-a1a64",
+    "storage_bucket": "mlvisiontest-a1a64.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968327119450:android:4141ce8559daf377340e63",
+        "android_client_info": {
+          "package_name": "com.example.ml_vision_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968327119450-j19s48711nhj8klavd45tkcmtohh5tc7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5JDSDU7LtkbWK-mPIbjRf3d-H11DP3Xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968327119450-j19s48711nhj8klavd45tkcmtohh5tc7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "968327119450-l5h29u8nasuvqdqlgm3r68l3rs6urone.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mlVisionTest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
