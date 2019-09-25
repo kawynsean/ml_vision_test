@@ -113,7 +113,7 @@ DEPENDENCIES:
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -166,4 +166,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 15720aecc5defd6d74b72a17046ac946aece810a
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.8.0

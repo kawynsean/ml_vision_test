@@ -5,31 +5,31 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui';
 
-class ScannerUtils {
-  ScannerUtils._();
+class CameraUtils {
+  CameraUtils._();
 
-  static Future<CameraDescription> getCamera(CameraLensDirection direction) async {
-    return await availableCameras().then(
-      (List<CameraDescription> cameras) => cameras.firstWhere(
-        (CameraDescription camera) => camera.lensDirection == direction,
-      )
-    );
+  static Future<CameraDescription> getCamera(
+      CameraLensDirection direction) async {
+    return await availableCameras()
+        .then((List<CameraDescription> cameras) => cameras.firstWhere(
+              (CameraDescription camera) => camera.lensDirection == direction,
+            ));
   }
 
-  static Future<dynamic> detect ({
+  static Future<dynamic> detect({
     @required CameraImage image,
     @required Future<dynamic> Function(FirebaseVisionImage image) detectInImage,
     @required int imageRotation,
   }) async {
     return detectInImage(
       FirebaseVisionImage.fromBytes(
-        _concatenatePlanes(image.planes), 
+        _concatenatePlanes(image.planes),
         _buildMetaData(image, _rotationIntToImageRotation(imageRotation)),
-        ),
+      ),
     );
   }
 
-    static Uint8List _concatenatePlanes(List<Plane> planes) {
+  static Uint8List _concatenatePlanes(List<Plane> planes) {
     final WriteBuffer allBytes = WriteBuffer();
     for (Plane plane in planes) {
       allBytes.putUint8List(plane.bytes);
@@ -37,7 +37,7 @@ class ScannerUtils {
     return allBytes.done().buffer.asUint8List();
   }
 
-    static FirebaseVisionImageMetadata _buildMetaData(
+  static FirebaseVisionImageMetadata _buildMetaData(
     CameraImage image,
     ImageRotation rotation,
   ) {
@@ -57,7 +57,7 @@ class ScannerUtils {
     );
   }
 
-    static ImageRotation _rotationIntToImageRotation(int rotation) {
+  static ImageRotation _rotationIntToImageRotation(int rotation) {
     switch (rotation) {
       case 0:
         return ImageRotation.rotation0;
