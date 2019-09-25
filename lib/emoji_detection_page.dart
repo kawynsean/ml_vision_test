@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ml_vision_test/camera_utilities.dart';
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
+import 'package:ml_vision_test/face_detector_painter.dart';
 
 
 
@@ -23,6 +24,8 @@ class _EmojiDetectionPageState extends State<EmojiDetectionPage> {
   double _rightEyeOpenProbability;
   double _leftEyeOpenProbability;
   Icon _cameraIcon = Icon(Icons.camera_front);
+  CustomPainter _painter;
+  bool _showContourLines = false;
 
 
   static FaceDetectorOptions _options = FaceDetectorOptions(
@@ -96,7 +99,9 @@ class _EmojiDetectionPageState extends State<EmojiDetectionPage> {
         leading: IconButton(
           icon: Icon(Icons.face),
           onPressed: () {
-            
+            setState(() {
+            _showContourLines = !_showContourLines;       
+            });
           },
         ),
         actions: <Widget>[
@@ -176,10 +181,28 @@ class _EmojiDetectionPageState extends State<EmojiDetectionPage> {
               fit: StackFit.passthrough,
               children: <Widget>[
                 CameraPreview(_camera),
-                _buildEmoji()
+                _buildEmoji(),
+                _buildContourPainter(),
                 ],
             ),
     );
+  }
+
+  Widget _buildContourPainter() {
+    
+    final Size imageSize =
+    Size(_camera.value.previewSize.height, _camera.value.previewSize.width);
+    _painter = FaceDetectorPainter(imageSize, _scanResults);
+
+    if (_showContourLines) {
+      print("SHOW CONTOURS LINES: $_painter");
+      
+      return CustomPaint(
+        painter: _painter,
+      );
+    } else {
+      return Container();
+    }
   }
 
 
