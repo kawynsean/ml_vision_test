@@ -99,12 +99,12 @@ class _EmojiDetectionPageState extends State<EmojiDetectionPage> {
             
           },
         ),
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: _cameraIcon,
-        //     onPressed: _toggleCameraDirection,
-        //   ),
-        // ],
+        actions: <Widget>[
+          IconButton(
+            icon: _cameraIcon,
+            onPressed: _toggleCameraDirection,
+          ),
+        ],
       ),
       body: _buildCameraImage(context),
     );
